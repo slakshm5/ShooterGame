@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>playerEvent</name>
+    <events>
+        <variable comment="Do we have any bullets" constant="0" name="isShooting" sid="3349223800365073" static="0" type="number">0</variable>
+        <variable comment="Number of bullets we have" constant="0" name="numAmmo" sid="9628147038358271" static="0" type="number">1000</variable>
+        <variable comment="What kind of bullet it is" constant="0" name="bulletType" sid="1983125104356785" static="0" type="number">0</variable>
+        <variable comment="Check between functions" constant="0" name="bulletWait" sid="9501632467514185" static="0" type="number">0</variable>
+        <variable comment="Rate of Fire" constant="0" name="bulletRate" sid="3808253455087693" static="0" type="number">0.1</variable>
+        <event-group description="All navigational events" sid="2319663174836807" title="Player Navigation">
+            <sub-events>
+                <event-block sid="6009641089377714">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="7000537259357894" type="Keyboard">
+                            <param id="0" name="Key">87 (W)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="1189020332695863" type="Player">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1192516499050042">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="541408307166548" type="Keyboard">
+                            <param id="0" name="Key">65 (A)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="1547620625366259" type="Player">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="125817517289873">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="2260144419590855" type="Keyboard">
+                            <param id="0" name="Key">83 (S)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="6301812145351987" type="Player">
+                            <param id="0" name="Control">3</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7667560347731137">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="7541274247929427" type="Keyboard">
+                            <param id="0" name="Key">68 (D)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="9384306335055242" type="Player">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="All player animation events" sid="2017387485961714" title="Player Animations">
+            <sub-events>
+                <event-block sid="6336128085376897">
+                    <conditions>
+                        <condition behavior="8Direction" id="0" inverted="1" name="Is moving" sid="844099274561196" type="Player" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="397215073533804" type="Player">
+                            <param id="0" name="Animation">&quot;idle&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Controls for Player Shooting" sid="1621369969595995" title="Player Shooting">
+            <sub-events>
+                <event-block sid="7668128882407019">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="2464350081215461" type="System">
+                            <param id="0" name="Variable">numAmmo</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="2129584214538893" type="System">
+                            <param id="0" name="Variable">isShooting</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="3840478993905188">
+                            <conditions>
+                                <condition id="2" name="Mouse button is down" sid="3038162110894995" type="Mouse">
+                                    <param id="0" name="Mouse button">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="3657721446539739" type="Player">
+                                    <param id="0" name="Animation">&quot;Shooting&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="7203479534510118">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="4293371273003251" type="System">
+                                            <param id="0" name="Variable">isShooting</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                        <condition id="-14" name="Compare variable" sid="423853438344938" type="System">
+                                            <param id="0" name="Variable">bulletWait</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="6689809792432284" type="Function">
+                                            <param id="0" name="Name">&quot;bulletType&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                        <action id="-10" name="Add to" sid="9691346502373436" type="System">
+                                            <param id="0" name="Variable">bulletWait</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="3885644725501408" type="Function">
+                                            <param id="0" name="Name">&quot;bulletTimer&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="8133196054506615">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="1774959461238402" type="System">
+                            <param id="0" name="Variable">numAmmo</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="6529896226284329" type="System">
+                            <param id="0" name="Variable">isShooting</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Bullet Types, Rate of Fire, Collisions" sid="13690119149843" title="Player Bullet Types">
+            <sub-events>
+                <event-block sid="5959632184551136">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="4951548426161447" type="playerBullet">
+                            <param id="0" name="Object">Enemy</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="4663385673295415" type="playerBullet" />
+                        <action id="-12" name="Subtract from" sid="6896982877192015" type="Enemy">
+                            <param id="0" name="Instance variable">Health</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9544430440168816">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="1282569455400758" type="System">
+                            <param id="0" name="Variable">bulletType</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="1660502454082855" type="System">
+                            <param id="0" name="Variable">bulletRate</param>
+                            <param id="1" name="Value">0.08</param>
+                        </action>
+                        <action id="0" name="Call function" sid="4012741657246591" type="Function">
+                            <param id="0" name="Name">&quot;createAccuracy&quot;</param>
+                            <param id="1" name="Parameter {n}">0.01{###}0.1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="5924315089789718">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="2836257750693454" type="playerBullet">
+                                    <param id="0" name="Object">Crate</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="4910037748302754" type="playerBullet" />
+                                <action id="-12" name="Subtract from" sid="7363129956875095" type="Crate">
+                                    <param id="0" name="Instance variable">Health</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="1568271585462907">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="9587600235812445" type="playerBullet">
+                                    <param id="0" name="Object">Wall</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="499040568487708" type="playerBullet" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Player Death Functionality" sid="4170650531011957" title="Player Death">
+            <sub-events>
+                <event-block sid="5532580213990929">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="8799265484875286" type="Player">
+                            <param id="0" name="Instance variable">Health</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="9639479754190057" type="Audio">
+                            <param id="0" name="Audio file">Explosion32</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-10</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="519769077151426" type="Player" />
+                        <action id="-9" name="Destroy" sid="3643160358386961" type="Camera" />
+                        <action id="-9" name="Set value" sid="8500827890106996" type="System">
+                            <param id="0" name="Variable">numAmmo</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="7749946283523423" type="System">
+                            <param id="0" name="Seconds">1.0</param>
+                        </action>
+                        <action id="0" name="Call function" sid="5869929750752402" type="Function">
+                            <param id="0" name="Name">&quot;gameOver&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>enemyEvent</name>
+    <events>
+        <variable constant="0" name="numEnemies" sid="834838547843222" static="0" type="number">0</variable>
+        <event-group description="" sid="31753395872206" title="Enemy LOS">
+            <sub-events>
+                <event-block sid="3743230553394299">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="1116018518511562" type="System">
+                            <param id="0" name="Object">Enemy</param>
+                        </condition>
+                        <condition behavior="LineOfSight" id="1" name="Has LOS to position" sid="5732515709807721" type="Enemy">
+                            <param id="0" name="X">Player.X</param>
+                            <param id="1" name="Y">Player.Y</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="5" name="Set enabled" sid="8035929995882375" type="Enemy">
+                            <param id="0" name="State">1</param>
+                        </action>
+                        <action id="-22" name="Set angle toward position" sid="2990808816201067" type="Enemy">
+                            <param id="0" name="X">Player.X</param>
+                            <param id="1" name="Y">Player.Y</param>
+                        </action>
+                        <action id="0" name="Call function" sid="5902909844440376" type="Function">
+                            <param id="0" name="Name">&quot;enemyShooting&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7157332134197683">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="9485771532231714" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="8425504980243097" type="Enemy">
+                            <param id="0" name="Animation">&quot;Idle&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="5369495965752277" title="Enemy Instantiation">
+            <sub-events>
+                <event-block sid="5830278662440999">
+                    <conditions>
+                        <condition id="-18" name="On created" sid="412181983980355" type="Enemy" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="283785511391094" type="System">
+                            <param id="0" name="Variable">numEnemies</param>
+                            <param id="1" name="Value">Enemy.EnemyTag</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="6136205516946932" type="Enemy">
+                            <param id="0" name="Instance variable">Health</param>
+                            <param id="1" name="Value">choose(8,3,12,6,2,4)</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="2917721921602218" type="Enemy">
+                            <param id="0" name="Instance variable">Range</param>
+                            <param id="1" name="Value">choose(500,200,250,300,340,450,600,1500,750,900)</param>
+                        </action>
+                        <action behavior="LineOfSight" id="0" name="Set range" sid="5919036110230288" type="Enemy">
+                            <param id="0" name="Range">Enemy.Range</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="6236019401748938" title="Enemy Death">
+            <sub-events>
+                <event-block sid="8527127737803351">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="5723794132398475" type="Enemy">
+                            <param id="0" name="Instance variable">Health</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="7041019638419927" type="Audio">
+                            <param id="0" name="Audio file">Explosion32</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="5136688923488289" type="Enemy" />
+                        <action id="-11" name="Subtract from" sid="3796032986939635" type="System">
+                            <param id="0" name="Variable">numEnemies</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="2427415627431103" title="Enemy Bullet Collisions">
+            <sub-events>
+                <event-block sid="8950744703044627">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="9579812643494769" type="EnemyBullet">
+                            <param id="0" name="Object">Player</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="3262110181851326" type="Audio">
+                            <param id="0" name="Audio file">Hit_Hurt55</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="5457601485051616" type="EnemyBullet" />
+                        <action id="-12" name="Subtract from" sid="6979846095808553" type="Player">
+                            <param id="0" name="Instance variable">Health</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1754125690561393">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="6313643789711274" type="EnemyBullet">
+                            <param id="0" name="Object">Wall</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="6314790911741712" type="EnemyBullet" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="1924440514789531" title="Enemy Collisions">
+            <sub-events>
+                <event-block sid="334277504980702">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="9881497813063253" type="Enemy">
+                            <param id="0" name="Object">Wall</param>
+                        </condition>
+                        <condition id="-11" name="For Each" sid="881351254234563" type="System">
+                            <param id="0" name="Object">Enemy</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="5" name="Set enabled" sid="6555660004287357" type="Enemy">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="7333863750256817" type="System">
+                            <param id="0" name="Seconds">0.5</param>
+                        </action>
+                        <action behavior="Bullet" id="5" name="Set enabled" sid="6299181401266678" type="Enemy">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4790164879425836">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="4445081812803609" type="System">
+                            <param id="0" name="Object">Enemy</param>
+                        </condition>
+                        <condition id="1" name="Is overlapping another object" sid="9246256090641959" type="Enemy">
+                            <param id="0" name="Object">Player</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="5" name="Set enabled" sid="2116486269027484" type="Enemy">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="8007659376077591" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
+                        <action id="-17" name="Move forward" sid="5333833861218896" type="Enemy">
+                            <param id="0" name="Distance">lerp(-5,-5,5)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="3164405298732595">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="8331538600386688" type="System">
+                    <param id="0" name="Variable">numEnemies</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="5839348655552694" type="Function">
+                    <param id="0" name="Name">&quot;gameOver&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

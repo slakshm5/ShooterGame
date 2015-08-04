@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>FUNCTIONS</name>
+    <events>
+        <event-group description="" sid="5583873738520379" title="Player Bullet Functions">
+            <sub-events>
+                <event-block sid="7943040836331533">
+                    <conditions>
+                        <condition id="0" name="On function" sid="7373727350447248" type="Function">
+                            <param id="0" name="Name">&quot;createAccuracy&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-18" name="Rotate clockwise" sid="5140201574166346" type="playerBullet">
+                            <param id="0" name="Degrees">random(Function.Param(0), Function.Param(1))</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3243292290332815">
+                    <conditions>
+                        <condition id="0" name="On function" sid="3781192184488949" type="Function">
+                            <param id="0" name="Name">&quot;bulletTimer&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Subtract from" sid="8250295446859385" type="System">
+                            <param id="0" name="Variable">numAmmo</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="8775004190380344" type="System">
+                            <param id="0" name="Seconds">bulletRate</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="7637317879587936" type="System">
+                            <param id="0" name="Variable">bulletWait</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5686022932198506">
+                    <conditions>
+                        <condition id="0" name="On function" sid="7045946547609843" type="Function">
+                            <param id="0" name="Name">&quot;bulletType&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="8569982212836982">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="7062265709966873" type="System">
+                                    <param id="0" name="Variable">bulletType</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Spawn another object" sid="9959787122141146" type="GunMask">
+                                    <param id="0" name="Object">playerBullet</param>
+                                    <param id="1" name="Layer">&quot;Entities&quot;</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="6771643953000575" type="GunMask">
+                                    <param id="0" name="Object">muzzleFlash</param>
+                                    <param id="1" name="Layer">0</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                                <action id="0" name="Play" sid="7883168687047921" type="Audio">
+                                    <param id="0" name="Audio file">Laser_Shoot285</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">-10</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                                <action id="0" name="Call function" sid="5902061002021639" type="Function">
+                                    <param id="0" name="Name">&quot;createScreenshake&quot;</param>
+                                    <param id="1" name="Parameter {n}">2{###}0.08</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="2681433198335974" type="System">
+                                    <param id="0" name="Seconds">0.1</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="4237369607752264" type="GunMask">
+                                    <param id="0" name="Object">BulletShell</param>
+                                    <param id="1" name="Layer">&quot;BG&quot;</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="1780228800428145" type="System">
+                                    <param id="0" name="Seconds">0.3</param>
+                                </action>
+                                <action behavior="Physics" id="21" name="Set immovable" sid="4664564559583337" type="BulletShell">
+                                    <param id="0" name="Setting">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="9604249789628374">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="2069979695751359" type="System">
+                                    <param id="0" name="Variable">bulletType</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Spawn another object" sid="3518120307668961" type="GunMask">
+                                    <param id="0" name="Object">playerBullet</param>
+                                    <param id="1" name="Layer">&quot;Entities&quot;</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                                <action id="0" name="Play" sid="5792642214949399" type="Audio">
+                                    <param id="0" name="Audio file">Laser_Shoot285</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">-10</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="2047759156179327" title="Main Game Functions">
+            <sub-events>
+                <event-block sid="1358484233947374">
+                    <conditions>
+                        <condition id="0" name="On function" sid="4058749695825174" type="Function">
+                            <param id="0" name="Name">&quot;gameOver&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Wait" sid="601362694913888" type="System">
+                            <param id="0" name="Seconds">2.0</param>
+                        </action>
+                        <action id="-21" name="Reset global variables" sid="3531989829599618" type="System" />
+                        <action id="-26" name="Restart layout" sid="7232263165786775" type="System" />
+                    </actions>
+                </event-block>
+                <event-block sid="5718631212547069">
+                    <conditions>
+                        <condition id="0" name="On function" sid="7227034447700467" type="Function">
+                            <param id="0" name="Name">&quot;createScreenshake&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="ScrollTo" id="0" name="Shake" sid="2265584255155819" type="Camera">
+                            <param id="0" name="Magnitude">Function.Param(0)</param>
+                            <param id="1" name="Duration">Function.Param(1)</param>
+                            <param id="2" name="Mode">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="3262377609316166" title="Enemy Bullet Functions">
+            <sub-events>
+                <event-block sid="8374779805063194">
+                    <conditions>
+                        <condition id="0" name="On function" sid="5389331503215478" type="Function">
+                            <param id="0" name="Name">&quot;enemyShooting&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="4117885861354459">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="3467396218932611" type="System">
+                                    <param id="0" name="Interval (seconds)">choose(1.0,0.12,0.5,0.15,0.51,1.2)</param>
+                                </condition>
+                                <condition id="-11" name="For Each" sid="9018206614468009" type="System">
+                                    <param id="0" name="Object">Enemy</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="57884567096434" type="Audio">
+                                    <param id="0" name="Audio file">Laser_Shoot146</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">-10</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="2580381143422803" type="Enemy">
+                                    <param id="0" name="Object">EnemyBullet</param>
+                                    <param id="1" name="Layer">&quot;Entities&quot;</param>
+                                    <param id="2" name="Image point">&quot;Shooting&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="389627496432138" title="Enemy Spawn Manager">
+            <sub-events>
+                <event-block sid="6218677675151799">
+                    <conditions>
+                        <condition id="0" name="On function" sid="1744936277522934" type="Function">
+                            <param id="0" name="Name">&quot;spawnEnemies&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="240280613492509">
+                            <conditions>
+                                <condition id="-12" name="Repeat" sid="7586097447407269" type="System">
+                                    <param id="0" name="Count">choose(6,2,3,5,7,8,10)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="9285593255372639" type="System">
+                                    <param id="0" name="Object to create">Enemy</param>
+                                    <param id="1" name="Layer">&quot;Entities&quot;</param>
+                                    <param id="2" name="X">LayoutWidth/choose(2,4,6)+random(Wall.X + choose(10,30,40),Wall.X+choose(float(10),float(20),float(30)))</param>
+                                    <param id="3" name="Y">LayoutHeight/choose(3,9,12)+random(Wall.Y + choose(10,30,40),Wall.Y+choose(float(10),float(20),float(30)))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

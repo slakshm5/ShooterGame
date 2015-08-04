@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2project>
+    <name>TopDownShooter</name>
+    <description>Top Down Shooting Game</description>
+    <version>1.0.0.0</version>
+    <author>Sarah Palat</author>
+    <author-email>slakshm5@ncsu.edu</author-email>
+    <author-website>http://www.sarahpalat.com</author-website>
+    <app-id>com.sarahpalat.main</app-id>
+    <unique-id>31o96vrqazxe8</unique-id>
+    <saved-with-version>20600</saved-with-version>
+    <used-plugins>
+        <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
+        <plugin author="Scirra" id="Function" version="1">Function</plugin>
+        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
+        <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
+        <plugin author="Scirra" id="shadowlight" version="1">Shadow Light</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
+        <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
+        <behavior author="Scirra" id="Fade" version="1">Fade</behavior>
+        <behavior author="Scirra" id="LOS" version="1">Line Of Sight</behavior>
+        <behavior author="Scirra" id="Physics" version="1">Physics</behavior>
+        <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
+        <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
+        <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
+        <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
+        <behavior author="Scirra" id="shadowcaster" version="1">Shadow Caster</behavior>
+        <behavior author="Scirra" id="solid" version="1">Solid</behavior>
+    </used-behaviors>
+    <used-effects>
+        <effect author="Scirra" id="lumblend">Luminosity</effect>
+    </used-effects>
+    <configurations>
+        <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
+    </configurations>
+    <window-size>
+        <width>320</width>
+        <height>180</height>
+    </window-size>
+    <pixel-rounding>0</pixel-rounding>
+    <preview-effects>1</preview-effects>
+    <use-loader-layout>0</use-loader-layout>
+    <configuration-settings>
+        <prop name="Clear background">No</prop>
+        <prop name="Downscaling">Medium quality</prop>
+        <prop name="Enable WebGL">On</prop>
+        <prop name="Fullscreen in browser">Letterbox scale</prop>
+        <prop name="Fullscreen scaling">High quality</prop>
+        <prop name="Loader style">Progress bar &amp; logo</prop>
+        <prop name="Orientations">Any</prop>
+        <prop name="Pause on unfocus">No</prop>
+        <prop name="Physics engine">Box2D asm.js</prop>
+        <prop name="Preload sounds">Yes</prop>
+        <prop name="Preview browser">(default)</prop>
+        <prop name="Sampling">Linear</prop>
+        <prop name="Use high-DPI display">Yes</prop>
+    </configuration-settings>
+    <object-folder>
+        <object-type name="Player" sid="5036716094206609">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Health" sid="761521069146479" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="8Direction" sid="4447092572165079">
+                    <behavior id="EightDir" />
+                </behavior-type>
+                <behavior-type name="BoundToLayout" sid="9010985117337693">
+                    <behavior id="bound" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="20" loop="0" name="Idle" pingpong="0" repeatcount="1" repeatto="0" sid="6129566284223516" speed="5">
+                    <frame duration="1" hotspotX="0.341584" hotspotY="0.705128" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_0.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_1.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_2.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_3.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_4.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_5.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_6.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_7.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_8.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_9.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_10.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_11.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_12.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_13.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_14.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_15.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_16.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_17.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_18.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_19.png" />
+                </animation>
+                <animation framecount="1" loop="0" name="Shooting" pingpong="0" repeatcount="1" repeatto="0" sid="4608218125798786" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\shoot\survivor-shoot_handgun_1.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Keyboard" sid="9881102470752911">
+            <plugin id="Keyboard" />
+        </object-type>
+        <object-type name="Mouse" sid="7010695803363721">
+            <plugin id="Mouse" />
+        </object-type>
+        <object-type name="Function" sid="9276573238483801">
+            <plugin id="Function" />
+        </object-type>
+        <object-type name="GunMask" sid="5333222914637728">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Pin" sid="4738915169056021">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3640713247542231" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="playerBullet" sid="8222367117777047">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="8086014138297216">
+                    <behavior id="Bullet" />
+                </behavior-type>
+                <behavior-type name="DestroyOutsideLayout" sid="4813422849884918">
+                    <behavior id="destroy" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7302474151455955" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Audio" sid="3921159874405302">
+            <plugin id="Audio" />
+        </object-type>
+        <object-type name="muzzleFlash" sid="32588421651472">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Fade" sid="4887177984329449">
+                    <behavior id="Fade" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="314159700935127" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Wall" sid="6574822757908104">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="5207753978240092">
+                    <behavior id="solid" />
+                </behavior-type>
+                <behavior-type name="ShadowCaster" sid="1406841560440953">
+                    <behavior id="shadowcaster" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="2300333566689376" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="ShadowLight" sid="2201840880869357">
+            <plugin id="shadowlight" />
+            <behaviors>
+                <behavior-type name="Pin" sid="671596069882359">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+        </object-type>
+        <object-type name="Camera" sid="4748324700847905">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="ScrollTo" sid="8171128392458184">
+                    <behavior id="scrollto" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1226086229154895" speed="5">
+                    <frame duration="1" hotspotX="0.496" hotspotY="0.528" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Crate" sid="2995605071117622">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Health" sid="3430524795545494" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Solid" sid="5485513166995016">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9560230562903571" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Study\HTML5Construct2\Assets\Crate.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="PlayerHealth" sid="5077365703797907">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="HUDAmmo" sid="8935431299990069">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Enemy" sid="2824853523421046">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Health" sid="5666540194492528" type="number" />
+                <instance-variable name="Range" sid="4562975443230179" type="number" />
+                <instance-variable name="EnemyTag" sid="4848036702136345" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="BoundToLayout" sid="1495456595688683">
+                    <behavior id="bound" />
+                </behavior-type>
+                <behavior-type name="LineOfSight" sid="9315347169438959">
+                    <behavior id="LOS" />
+                </behavior-type>
+                <behavior-type name="Bullet" sid="8275636838953075">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <effects>
+                <effect-type name="Luminosity">
+                    <effect id="lumblend" />
+                </effect-type>
+            </effects>
+            <animation-folder>
+                <animation framecount="20" loop="0" name="Idle" pingpong="0" repeatcount="1" repeatto="0" sid="8386324542752858" speed="5">
+                    <frame duration="1" hotspotX="0.341584" hotspotY="0.705128" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_0.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_1.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_2.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_3.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_4.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_5.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_6.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_7.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_8.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_9.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_10.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_11.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_12.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_13.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_14.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_15.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_16.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_17.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_18.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_19.png" />
+                </animation>
+                <animation framecount="1" loop="0" name="Shooting" pingpong="0" repeatcount="1" repeatto="0" sid="7712584260165278" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Study\HTML5Construct2\Assets\Top_Down_Survivor\handgun\shoot\survivor-shoot_handgun_1.png">
+                        <image-point name="Shooting" x="0.980198" y="0.814103" />
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="EnemyBullet" sid="4089930701565087">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="7658321580083473">
+                    <behavior id="Bullet" />
+                </behavior-type>
+                <behavior-type name="DestroyOutsideLayout" sid="316753523513451">
+                    <behavior id="destroy" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="881172903881415" speed="5">
+                    <frame duration="1" hotspotX="0.641509" hotspotY="0.602564" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="HUDEnemies" sid="3477484239498817">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="TiledBackground" sid="6459414151275343">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="TiledBackground2" sid="4437567917620564">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="TiledBackground3" sid="3417201402059505">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="BulletShell" sid="1454401438983753">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Physics" sid="7317060186382296">
+                    <behavior id="Physics" />
+                </behavior-type>
+                <behavior-type name="Fade" sid="7250050355260005">
+                    <behavior id="Fade" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6341537716533551" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+    </object-folder>
+    <families />
+    <layout-folder>
+        <layout>mainLayout.xml</layout>
+    </layout-folder>
+    <event-folder>
+        <event-sheet>mainEvent.xml</event-sheet>
+        <event-sheet>playerEvent.xml</event-sheet>
+        <event-sheet>FUNCTIONS.xml</event-sheet>
+        <event-sheet>enemyEvent.xml</event-sheet>
+    </event-folder>
+    <global-instances>
+        <global-instance type="Keyboard" uid="1" />
+        <global-instance type="Mouse" uid="2" />
+        <global-instance type="Function" uid="3" />
+        <global-instance type="Audio" uid="6">
+            <properties>
+                <timescale-audio>Off</timescale-audio>
+                <saveload>All</saveload>
+                <play-in-background>No</play-in-background>
+                <positioned-audio></positioned-audio>
+                <panning-model>HRTF</panning-model>
+                <distance-model>Inverse</distance-model>
+                <listener-z-height>600</listener-z-height>
+                <reference-distance>600</reference-distance>
+                <maximum-distance>10000</maximum-distance>
+                <roll-off-factor>1</roll-off-factor>
+            </properties>
+        </global-instance>
+    </global-instances>
+    <sounds-folder>
+        <file name="Explosion32.m4a" />
+        <file name="Explosion32.ogg" />
+        <file name="Hit_Hurt55.m4a" />
+        <file name="Hit_Hurt55.ogg" />
+        <file name="Hit_Hurt67.m4a" />
+        <file name="Hit_Hurt67.ogg" />
+        <file name="Laser_Shoot146.m4a" />
+        <file name="Laser_Shoot146.ogg" />
+        <file name="Laser_Shoot218.m4a" />
+        <file name="Laser_Shoot218.ogg" />
+        <file name="Laser_Shoot285.m4a" />
+        <file name="Laser_Shoot285.ogg" />
+    </sounds-folder>
+    <music-folder />
+    <files-folder>
+        <file-folder name="Icons">
+            <file name="icon-16.png" />
+            <file name="icon-32.png" />
+            <file name="icon-114.png" />
+            <file name="icon-128.png" />
+            <file name="icon-256.png" />
+            <file name="loading-logo.png" />
+        </file-folder>
+    </files-folder>
+</c2project>

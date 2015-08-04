@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>mainEvent</name>
+    <events>
+        <include>enemyEvent</include>
+        <variable constant="0" name="wallShadow" sid="4797453583020762" static="0" type="number">2</variable>
+        <include>FUNCTIONS</include>
+        <include>playerEvent</include>
+        <event-block sid="3790665227475099">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="8734076554153371" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="Pin" id="0" name="Pin to object" sid="4928142813666861" type="GunMask">
+                    <param id="0" name="Pin to">Player</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="4019589525903255" type="ShadowLight">
+                    <param id="0" name="Pin to">Player</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+                <action behavior="ShadowCaster" id="1" name="Set height" sid="6937691485743591" type="Wall">
+                    <param id="0" name="Height">wallShadow</param>
+                </action>
+                <action id="0" name="Call function" sid="2483179767979268" type="Function">
+                    <param id="0" name="Name">&quot;spawnEnemies&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4975126432918293">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="3841312715303913" type="System" />
+            </conditions>
+            <actions>
+                <action id="-22" name="Set angle toward position" sid="5786491843741405" type="Player">
+                    <param id="0" name="X">Mouse.X</param>
+                    <param id="1" name="Y">Mouse.Y</param>
+                </action>
+                <action id="-3" name="Set position" sid="2054580104499704" type="Camera">
+                    <param id="0" name="X">lerp(Player.X, Mouse.X, 0.15)</param>
+                    <param id="1" name="Y">lerp(Player.Y, Mouse.Y, 0.15)</param>
+                </action>
+                <action id="0" name="Set text" sid="8935084321290056" type="PlayerHealth">
+                    <param id="0" name="Text">&quot;Health: &quot; &amp;  Player.Health</param>
+                </action>
+                <action id="0" name="Set text" sid="8252650893210829" type="HUDAmmo">
+                    <param id="0" name="Text">&quot;Ammo: &quot;&amp; numAmmo</param>
+                </action>
+                <action id="0" name="Set text" sid="2841732821413443" type="HUDEnemies">
+                    <param id="0" name="Text">&quot;Remaining: &quot; &amp; numEnemies</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="6259180457868602" title="Destructible Objects">
+            <sub-events>
+                <event-block sid="4794626115022512">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="3924625217829092" type="Crate">
+                            <param id="0" name="Instance variable">Health</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="6313460342903103" type="Crate" />
+                        <action id="0" name="Play" sid="2721458634222537" type="Audio">
+                            <param id="0" name="Audio file">Explosion32</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
