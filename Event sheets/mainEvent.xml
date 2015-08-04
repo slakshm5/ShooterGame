@@ -68,7 +68,7 @@
                         <action id="0" name="Play" sid="2721458634222537" type="Audio">
                             <param id="0" name="Audio file">Explosion32</param>
                             <param id="2" name="Loop">0</param>
-                            <param id="3" name="Volume">0</param>
+                            <param id="3" name="Volume">-10</param>
                             <param id="1" name="Tag (optional)">&quot;&quot;</param>
                         </action>
                     </actions>
